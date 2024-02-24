@@ -1,0 +1,28 @@
+-- Show the ratio between the total crime gravity of each year w.r.t the previous year.
+
+WITH MEMBER RatioWRT_PreviousYear AS 
+  IIF(
+    ISEMPTY(
+      (PARALLELPERIOD(
+        [Date].[DayMonthQuarterYear].[Year],
+        1,
+        [Date].[DayMonthQuarterYear].CURRENTMEMBER
+      ), [Measures].[Crime Gravity])
+    ), -- Closes ISEMPTY
+    'NO DATA AVAILABLE',
+    FORMAT(
+      [Measures].[Crime Gravity] /
+      (PARALLELPERIOD(
+        [Date].[DayMonthQuarterYear].[Year],
+        1,
+        [Date].[DayMonthQuarterYear].CURRENTMEMBER
+      ), [Measures].[Crime Gravity]),
+      '#0.000'
+    ) -- Closes FORMAT
+  )  -- Closes IIF
+
+SELECT 
+  {[Measures].[Crime Gravity], RatioWRT_PreviousYear} ON COLUMNS,
+  [Date].[DayMonthQuarterYear].[Year] ON ROWS
+FROM 
+  Group6_Police;

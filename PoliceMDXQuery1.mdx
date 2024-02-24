@@ -1,0 +1,7 @@
+-- Show the total crime gravity for each city and the grand total with respect to the state.
+
+WITH MEMBER GrandTotalPerState AS
+([Geography].[GeoHierarchy].CURRENTMEMBER.PARENT.PARENT, [Measures].[Crime Gravity])
+SELECT {[Measures].[Crime Gravity], GrandTotalPerState} ON COLUMNS,
+[Geography].[GeoHierarchy].[City] ON ROWS
+FROM Group6_Police;

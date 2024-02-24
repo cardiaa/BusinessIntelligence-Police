@@ -1,0 +1,37 @@
+-- Show the percentage increase or decrease in total crime gravity answers 
+-- with respect to the previous year for each age group.
+
+WITH 
+  MEMBER CG_YearlyVariation AS
+    IIF(
+      ISEMPTY(
+        (PARALLELPERIOD(
+          [Date].[DayMonthQuarterYear].[Year],
+          1,
+          [Date].[DayMonthQuarterYear].CURRENTMEMBER
+        ), [Measures].[Crime Gravity])
+      ), -- Closes ISEMPTY
+      'NO DATA AVAILABLE',
+      ([Measures].[Crime Gravity] - 
+       (PARALLELPERIOD(
+         [Date].[DayMonthQuarterYear].[Year],
+         1,
+         [Date].[DayMonthQuarterYear].CURRENTMEMBER
+       ), [Measures].[Crime Gravity])) -- Closes the numerator
+      /
+      (PARALLELPERIOD(
+        [Date].[DayMonthQuarterYear].[Year],
+        1,
+        [Date].[DayMonthQuarterYear].CURRENTMEMBER
+      ), [Measures].[Crime Gravity]) -- Closes the denominator
+    ), -- Closes IIF 
+  FORMAT_STRING = 'PERCENT'
+
+SELECT 
+  {[Measures].[Crime Gravity], CG_YearlyVariation} ON COLUMNS,
+  CROSSJOIN(
+    [Participant].[Age Group].[Age Group],
+    [Date].[DayMonthQuarterYear].[Year]
+  ) ON ROWS
+FROM 
+  Group6_Police;
