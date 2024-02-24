@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1831
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "LDS_PoliceProject", "LDS_PoliceProject\LDS_PoliceProject.dtproj", "{EB8721EC-246C-41C8-9304-7322601D6BCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB8721EC-246C-41C8-9304-7322601D6BCB}.Development|Default.ActiveCfg = Development
+		{EB8721EC-246C-41C8-9304-7322601D6BCB}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20C1F9E7-5C58-49D6-A73F-EED0C20DE5CC}
+	EndGlobalSection
+EndGlobal
