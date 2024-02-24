@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1831
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Group6_Police", "Group6_Police\Group6_Police.dwproj", "{C00A0B25-42B3-41B5-91DA-1902DA964F55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C00A0B25-42B3-41B5-91DA-1902DA964F55}.Development|Default.ActiveCfg = Development
+		{C00A0B25-42B3-41B5-91DA-1902DA964F55}.Development|Default.Build.0 = Development
+		{C00A0B25-42B3-41B5-91DA-1902DA964F55}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D01002A3-48A6-4214-824F-30DCF46738DA}
+	EndGlobalSection
+EndGlobal
